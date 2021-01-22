@@ -1,0 +1,29 @@
+	<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script>
+angular.module('todoApp', []).controller('todocontrol', function($scope){
+$scope.tasks = [];
+$scope.add = function() {
+$scope.tasks.push($scope.title);
+}
+})
+</script>
+<div ng-app="todoApp" ng-controller="todocontrol">
+<input type="text" class="form-control" ng-model="title"><button class="btn btn-primary" ng-click="add()">
+<i class="glyphicon glyphicon-plus-sign"></i> </button>
+<div class="container">
+<div class="jumbotron">
+<ul>
+<li ng-repeat="t in tasks" class="alert alert-success alert-dismissible fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ t }}</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
